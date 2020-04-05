@@ -1,6 +1,6 @@
 1. It is not neceesary to specify that a PRIMARY KEY is NOT NULL. In Redshift the PRIMARY KEY is only for documentation and the database uses this information to optimize the query plan. 
 
-2. Don't put NOT NULL when importing log files. It's ok to have null values, duplicates in data warehouse.
+2. Don't put NOT NULL when importing log files. It's ok to have null values, duplicates in data warehouse.(The PRIMARY KEY IN EACH TABLE SHOULD HAVE THE UNIQUE KEY.)
 
 3. All functions should use docstring(PEP8). 
 

@@ -182,7 +182,7 @@ INSERT INTO songplays (start_time, user_id, level, song_id, artist_id, sessionId
 SELECT 
     DISTINCT
     se.ts as start_time,
-    se.userId as user_id,
+    se.userId AS user_id,
     se.level,
     ss.song_id,
     ss.artist_id,
@@ -199,19 +199,46 @@ WHERE se.page = 'NextSong'
 
 
 # Select unique user_id base on latest timestamp.
+# user_table_insert = ("""
+
+# INSERT INTO users 
+# SELECT
+#     DISTINCT(userId) as　user_id,
+#     firstName as　first_name,
+#     lastName as　last_name,
+#     gender,
+#     level
+# FROM staging_events se
+# WHERE userId IS NOT NULL
+#     AND page = 'NextSong'
+# """)
+
+# Updated query to only select unique user_id, Select the latest user record as the unique one.
 user_table_insert = ("""
 
 INSERT INTO users 
-SELECT
-    DISTINCT(userId) as　user_id,
-    firstName as　first_name,
-    lastName as　last_name,
+SELECT 
+    user_id,
+    first_name,
+    last_name,
     gender,
     level
-FROM staging_events se
-WHERE userId IS NOT NULL
-    AND page = 'NextSong'
+FROM (
+        SELECT
+            ROW_NUMBER() OVER (PARTITION BY userId ORDER BY ts DESC) AS ROW_NUM,
+            userId as user_id,
+            firstName as first_name,
+            lastName as last_name,
+            gender,
+            level
+        FROM staging_events se
+        WHERE userId IS NOT NULL
+) T
+WHERE T.ROW_NUM = 1
+
 """)
+
+
 
     
 song_table_insert = ("""
@@ -228,43 +255,43 @@ WHERE song_id IS NOT NULL
 """)
 
 # Query that will import duplicates
-artist_table_insert = ("""
-
-INSERT INTO artists 
-SELECT
-    DISTINCT(artist_id) as artist_id,
-    ss.artist_name as name,
-    ss.artist_location as location,
-    ss.artist_latitude as latitude,
-    ss.artist_longitude as longitude
-FROM staging_songs ss
-WHERE artist_id IS NOT NULL
-""")
-
-# Updated query to only select unique artist_id
-
 # artist_table_insert = ("""
 
 # INSERT INTO artists 
 # SELECT
-#     artist_id,
-#     name,
-#     location,
-#     latitude,
-#     longitude
-# FROM (
-#         SELECT
-#             ROW_NUMBER() OVER(PARTITION BY artist_id ORDER BY artist_name) AS row_num,
-#             artist_id,
-#             ss.artist_name as name,
-#             ss.artist_location as location,
-#             ss.artist_latitude as latitude,
-#             ss.artist_longitude as longitude
-#         FROM staging_songs ss
-#         WHERE artist_id is not null
-# ) T1
-# WHERE T1.row_num = 1
+#     DISTINCT(artist_id) as artist_id,
+#     ss.artist_name as name,
+#     ss.artist_location as location,
+#     ss.artist_latitude as latitude,
+#     ss.artist_longitude as longitude
+# FROM staging_songs ss
+# WHERE artist_id IS NOT NULL
 # """)
+
+# Updated query to only select unique artist_id
+
+artist_table_insert = ("""
+
+INSERT INTO artists 
+SELECT
+    artist_id,
+    name,
+    location,
+    latitude,
+    longitude
+FROM (
+        SELECT
+            ROW_NUMBER() OVER(PARTITION BY artist_id ORDER BY artist_name) AS row_num,
+            artist_id,
+            ss.artist_name as name,
+            ss.artist_location as location,
+            ss.artist_latitude as latitude,
+            ss.artist_longitude as longitude
+        FROM staging_songs ss
+        WHERE artist_id is not null
+) T1
+WHERE T1.row_num = 1
+""")
 
 
 time_table_insert = ("""
