@@ -3,7 +3,7 @@
 This is the project submission for the Data Engineering Nanodegree. 
 
 The project contains practice for:
-1. Designing a Star Schema database
+1. Designed a Star Schema database
 2. Data modeling with SQL(Postgres)
 3. ETL process using python
 

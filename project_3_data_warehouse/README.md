@@ -3,9 +3,9 @@
 This is the project submission for the Data Warehouse and ETL Design. 
 
 The project contains practice for:
-1. Designing a data warehouse in Redshift.
-2. Writing query statements including DROP, CREATE, COPY, INSERT, and SELECT.
-3. Building ETL pipline to load data from S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
+1. Designed a data warehouse in Redshift.
+2. Wrote query statements including DROP, CREATE, COPY, INSERT, and SELECT.
+3. Built ETL pipline to load data from S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
 4. Exploratory data analysis and visualization using Python.
 
 Please check out this [Jupyter notebook](data_warehouse_and_analysis.ipynb) for data analysis based on the data warehouse .
@@ -63,7 +63,7 @@ The graphic below is the data warehouse designed based on the understanding of t
 
 ## ETL Pipeline
 
-After tables are created in the data warehouse, use [etl.ipynb](etl.ipynb) to load data from S3 to staging tables on Redshift, and then load data from staging tables to analytics tables on Redshift.
+After tables are created in the data warehouse, use [etl.py](etl.py) to load data from S3 to staging tables on Redshift, and then load data from staging tables to analytics tables on Redshift.
 
 <font color="red"> Make sure to delete the redshift cluster when finished to prevent huge cost.</font>
 
