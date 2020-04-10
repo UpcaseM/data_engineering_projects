@@ -57,6 +57,7 @@ Files used on the project:
 * session_id 	(INT): ID of the user Session
 * location 	(TEXT): User location
 * user_agent 	(TEXT): Agent used by user to access Sparkify platform
+
 **users** - users in the app
 
 * user_id 	(INT) PRIMARY KEY: ID of user
@@ -64,6 +65,7 @@ Files used on the project:
 * last_name 	(TEXT): Last Name of user
 * gender 	(TEXT): Gender of user {M | F}
 * level 	(TEXT): User level {free | paid}
+
 **songs** - songs in music database
 
 * song_id 	(TEXT) PRIMARY KEY: ID of Song
@@ -71,6 +73,7 @@ Files used on the project:
 * artist_id 	(TEXT): NOT NULL: ID of song Artist
 * year 		(INT): Year of song released
 * duration 	(FLOAT): Song duration
+
 **artists** - artists in music database
 
 * artist_id 	(TEXT) PRIMARY KEY: ID of Artist
@@ -78,6 +81,7 @@ Files used on the project:
 * location 	(TEXT): Name of Artist city
 * lattitude 	(TEXT): Lattitude location of artist
 * longitude 	(TEXT): Longitude location of artist
+
 **time** - timestamps of records in songplays broken down into specific units
 
 * start_time 	(TIMESTAMP) PRIMARY KEY: Timestamps
