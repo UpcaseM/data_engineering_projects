@@ -1,0 +1,1 @@
+1. Use full path to read file to prevent from path not found when running files on other machines. eg. os.path.dirname(os.path.abspath(__file__))
