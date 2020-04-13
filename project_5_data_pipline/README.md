@@ -55,41 +55,26 @@ We will focus on the building and deploying the Airflow solution in this project
 * **Port**: Enter *5439*.
 
 ### Project Strucute
-
+```
 create_tables.py		(Python script which creates tables in Redshift)
-
 sql_queries.py			(Python script which creates tables in Redshift)
-
 airflow
-
 ├──dags
 │  ├── sparkify_dag.py		(The Sparkfiy DAG)
-
 │  └── var.json			(Varibles used in sparkify_dag.py in json format)
-
 └──plugins
-
    ├── __ init__.py
-
    ├── helpers
-
    │   ├── __ init__.py
-
    │   └── sql_queries.py	(Contains all sql queries)
-
    └── operators
-
        ├── __ init__.py
-
        ├── data_quality.py  	(Contains class DataQualityOperator)
-
        ├── load_dimension.py	(Contains class LoadDimensionOperator)
-
        ├── load_fact.py		(Contains class LoadFactOperator)
-
        └── stage_redshift.py	(Contains class StageToRedshiftOperator)
 
-
+```
 *Configure files are not listed.*
 
 ### Sparkify DAG
