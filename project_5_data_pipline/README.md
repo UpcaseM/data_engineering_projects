@@ -23,16 +23,20 @@ We will focus on the building and deploying the Airflow solution in this project
 
 ### Airflow Setup
 1. Install Airflow
-	`conda install -c conda-forge airflow`
-	`#~/airflow is the default home`
-	`# You can lay home somewhere else if you perfer by`
-	`#export AIRFLOW_HOME=~/airflow`
+	```
+	conda install -c conda-forge airflow
+	#~/airflow is the default home
+	# You can lay home somewhere else if you perfer by
+	#export AIRFLOW_HOME=~/airflow
+	```
 2. Place dags and plugins in AIRFLOW_HOME dir
 3. Initialize the database, and start web server and scheduler.
-	`airflow initdb`
-	`airflow webserver -p 8080`
-	`airflow scheduler`
-	`#Visit localhost:8080 in the browser`
+	```
+	airflow initdb
+	airflow webserver -p 8080
+	airflow scheduler
+	#Visit localhost:8080 in the browser
+	```
 4. Set up AWS credentials and redshift connection.
 
 **AWS credentials**
@@ -53,22 +57,38 @@ We will focus on the building and deploying the Airflow solution in this project
 ### Project Strucute
 
 create_tables.py		(Python script which creates tables in Redshift)
+
 sql_queries.py			(Python script which creates tables in Redshift)
+
 airflow
+
 ├──dags
 │  ├── sparkify_dag.py		(The Sparkfiy DAG)
+
 │  └── var.json			(Varibles used in sparkify_dag.py in json format)
+
 └──plugins
+
    ├── __ init__.py
+
    ├── helpers
+
    │   ├── __ init__.py
+
    │   └── sql_queries.py	(Contains all sql queries)
+
    └── operators
+
        ├── __ init__.py
+
        ├── data_quality.py  	(Contains class DataQualityOperator)
+
        ├── load_dimension.py	(Contains class LoadDimensionOperator)
+
        ├── load_fact.py		(Contains class LoadFactOperator)
+
        └── stage_redshift.py	(Contains class StageToRedshiftOperator)
+
 
 *Configure files are not listed.*
 
