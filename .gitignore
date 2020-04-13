@@ -1,7 +1,12 @@
 **.ipynb_checkpoints
 **__pycache__
+**.pid
+**.cfg
 */spark_app/data
-*/spark_app/dl.cfg
 */spark_app/etl_test.ipynb
 */scripts.tar.gz
 */spark_auto.ipynb
+**.db
+**.log
+
+

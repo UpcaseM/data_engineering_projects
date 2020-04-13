@@ -1,0 +1,20 @@
+{
+	"sparkify_variables": {
+        "region": "us-west-2",
+    	"s3_bucket": "udacity-dend",
+    	"s3_key_log": "log_data",
+    	"additional_log": "FORMAT AS JSON 's3://udacity-dend/log_json_path.json' TIMEFORMAT AS 'epochmillisecs';",
+    	"s3_key_song": "song_data",
+	    "additional_song": "JSON 'auto'",
+    	"aws_credentials": "aws_credentials",
+    	"conn_redshift": "redshift",
+    	"lst_table": [
+        	"staging_events", 
+        	"staging_songs", 
+        	"songplays", 
+        	"users", 
+        	"songs", 
+        	"artists", 
+        	"time"]
+	}
+}
