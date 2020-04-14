@@ -5,7 +5,9 @@ This is the project submission for project: Data Pipline.
 The project contains practice for:
 1. Designed a data warehouse in Redshift.
 2. Wrote query statements including DROP, CREATE, COPY, INSERT, and SELECT.
-3. Created custom Airflow operaters to build ETL pipline to load data from S3 to AWS Redshift on a schedule.
+3. Built ETL piplines and scheduled the DAG using Airflow.
+4. Created custom Airflow operaters; Managed Airflow variables and connection. 
+
 
 ## Project Introduction
 A music streaming company, Sparkify, has decided that it is time to introduce more automation and monitoring to their data warehouse ETL pipelines and come to the conclusion that the best tool to achieve this is Apache Airflow.
