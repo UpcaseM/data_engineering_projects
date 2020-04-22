@@ -24,7 +24,7 @@ The project follows steps below:
 
 ### Project scope
 
-The goal of the project is to build a dimentional data model(analytics tables) using [Yelp Open Dataset](https://www.yelp.com/dataset/), and store them to s3 as parquet format. Data analyst, data scientist, business analyst, and software engineer will be able to analyze the data and create visualization to answer business questions, build recommendation systems or prediction models, and develop new products based on the data model. I included a [notebook yelp_eda](/jupyter notebook/yelp_eda.ipynb) based on the data model I designed to show you how I used query to answer some business questinos.
+The goal of the project is to build a dimentional data model(analytics tables) using [Yelp Open Dataset](https://www.yelp.com/dataset/), and store them to s3 as parquet format. Data analyst, data scientist, business analyst, and software engineer will be able to analyze the data and create visualization to answer business questions, build recommendation systems or prediction models, and develop new products based on the data model. I included a [notebook yelp_eda](jupyter%20notebook/yelp_eda.ipynb) based on the data model I designed to show you how I used query to answer some business questinos.
 
 
 ### Data gathering
