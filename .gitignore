@@ -2,11 +2,14 @@
 **__pycache__
 **.pid
 **.cfg
-*/spark_app/data
-*/spark_app/etl_test.ipynb
-*/scripts.tar.gz
-*/spark_auto.ipynb
 **.db
 **.log
+*/spark_app/data
+*/spark_app/etl_test.ipynb
+**.tar.gz
+*/spark_auto.ipynb
+project_6_capstone/doc
+project_6_capstone/data
+
 
 
