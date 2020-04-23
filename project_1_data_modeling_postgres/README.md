@@ -10,26 +10,26 @@ The project contains practice for:
 Please check out the [data_modeling_postgres.ipynb](data_modeling_postgres.ipynb) for the final presentation of this project.
 
 ## Project Introduction
-A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app.Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. 
+A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. 
 As a data engineer, my task is to create a database schema and ETL pipeline for this analysis.
 
 ## Project Breakdown
-- Undstand the datasets
+- Understand the datasets
 - Design a star schema database
-- Write create, drop and sql statements to create(or reset) database and tables
-- Complete the ETL pipline using Python
-- Finaly presentation of the project
+- Write create, drop and SQL statements to create(or reset) database and tables
+- Complete the ETL pipeline using Python
+- Finally presentation of the project
 
 ### Project files
 
 Files used on the project:
-1. **data** folder nested at the home of the project, where all needed jsons reside.
+1. **data** folder nested at the home of the project, where all JSON reside.
 2. **create_tables.py** create or reset the database and tables.
-3. **sql_queries.py** contains all sql queries.
+3. **sql_queries.py** contains all SQL queries.
 4. **Data Modeling with Postgres.ipynb** final presentation of the project.
 5. **etl.ipynb** reads and processes a single file from song_data and log_data and loads the data into your tables. 
 6. **etl.py** reads and processes files from song_data and log_data and loads them into your tables. 
-7. **README.md** current file, provides discussion on my project.
+7. **README.md** current file, provides a discussion on my project.
 8. **Star Schema.PNG** graphic of the Star Schema designed.
 
 ## Understanding the Datasets
@@ -60,9 +60,9 @@ The graphic below is the Star Schema designed based on the understanding of the 
 
 1. After database and tables are created, use [etl.ipynb](etl.ipynb) to read and process a single file to help design the ETL process.
 
-2. Use python to create a [etl.py](etl.py) to process the all the datasets in the data folder.
+2. Use python to create a [etl.py](etl.py) to process all the datasets in the data folder.
 
-## Finaly presentation
+## Finally the presentation
 
 Use the file [Data Modeling with Postgres](data_modeling_postgres.ipynb) to review the project and test all the codings.
 

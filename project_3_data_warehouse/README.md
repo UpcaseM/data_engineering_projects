@@ -5,20 +5,20 @@ This is the project submission for the Data Warehouse and ETL Design.
 The project contains practice for:
 1. Designed a data warehouse in Redshift.
 2. Wrote query statements including DROP, CREATE, COPY, INSERT, and SELECT.
-3. Built ETL pipline to load data from S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
+3. Built an ETL pipeline to load data from S3 to staging tables on Redshift and execute SQL statements that create the analytics tables from these staging tables.
 4. Exploratory data analysis and visualization using Python.
 
-Please check out this [Jupyter notebook](data_warehouse_and_analysis.ipynb) for data analysis based on the data warehouse .
+Please check out this [Jupyter notebook](data_warehouse_and_analysis.ipynb) for data analysis based on the data warehouse.
 
 ## Project Introduction
-A music streaming startup, Sparkify, has grown their user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
+A music streaming startup, Sparkify, has grown its user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 As a data engineer, my task is to build an ETL pipeline that extracts their data from S3, stages them in Redshift, and transforms data into a set of dimensional tables for their analytics team to continue finding insights in what songs their users are listening to. 
 
 ## Project Breakdown
-- Undstand the datasets
+- Understand the datasets
 - Design a data warehouse
-- Write create, drop and sql statements to create(or reset) database and tables
-- Build an ETL pipline using Python
+- Write create, drop and SQL statements to create(or reset) database and tables
+- Build an ETL pipeline using Python
 - Data analysis
 
 ### Project files
@@ -28,7 +28,7 @@ Files used on the project:
 2. **data_warehouse_and_analysis.ipynb** is the final presentation of the project.
 3. **dwh.cfg** is the configuration file.
 4. **etl.py** is where we load data from S3 into staging tables on Redshift and then process that data into the analytics tables on Redshift. 
-5. **README.md** current file, provides discussion on my project.
+5. **README.md** current file provides a discussion on my project.
 6. **redshift_data_warehouse.PNG** graphic of the data warehouse designed.
 7. **sql_queries.py** is where we define all SQL statements.
 
