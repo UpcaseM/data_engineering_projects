@@ -15,7 +15,7 @@ The project follows steps below:
 1. Project scope and data gathering
 2. Data exporlation and assessment
 3. Data model design
-4. Building ETL pipline to process the data
+4. Building ETL pipeline to process the data
 5. Deployment
 6. Summary
 
@@ -51,10 +51,10 @@ project_6_capstone			(project folder)
 │   ├── data_preparation.py		(python file to prepare the dataset)
 │   ├── auto_deploy_spark_app.py	(python file to deploy the spark app)
 │   └── spark_app			(folder for all etl files related)
-│       ├── dl.cfg			(configure file for the etl pipline)
+│       ├── dl.cfg			(configure file for the etl pipeline)
 │       ├── setup.sh			(bash file to setup env in EMR)
 │       ├── terminate_idle_cluster.sh	(bash file to terminate the EMR)
-│       └── etl.py			(pyhon file for the ETL pipline)
+│       └── etl.py			(pyhon file for the ETL pipeline)
 ├── jupyter notebook			(folder to hold all jupyter notebooks)
 │   ├── yelp_eda.ipynb			(exploratory analysis on the data model)
 │   ├── data_preparation.ipynb		(steps to prepare the dataset)
@@ -85,9 +85,9 @@ The graphic below is the data warehouse designed based on the understanding of t
 ![Dimentional Data Model](resource/capstone_erd.png)
 
 
-## ETL Pipline
+## ETL Pipeline
 
-The [ETL pipline](src/spark_app/etl.py) to process the dataset contains steps below:
+The [ETL pipeline](src/spark_app/etl.py) to process the dataset contains steps below:
 
 1. Create a spark session
 2. Process weather data
@@ -122,13 +122,13 @@ The [ETL pipline](src/spark_app/etl.py) to process the dataset contains steps be
 
 ## Deployment
 
-To deploy our ETL pipline we can create a EMR cluster in AWS and sumbit spark job by connecting to EMR master node via SSH. However, I'd like to deploy the ETL piline programmably to cut the manual work.
+To deploy our ETL pipeline we can create a EMR cluster in AWS and sumbit spark job by connecting to EMR master node via SSH. However, I'd like to deploy the ETL piline programmably to cut the manual work.
 
-I wrote a python script [auto_deploy_spark_app](src/auto_deploy_spark_app.py) to deploy the ETL pipline automatically and terminate the EMR cluster when the job is done. We can simply run the auto_deploy_spark_app.py to deploy the ETL pipline and run it on EMR cluster.
+I wrote a python script [auto_deploy_spark_app](src/auto_deploy_spark_app.py) to deploy the ETL pipeline automatically and terminate the EMR cluster when the job is done. We can simply run the auto_deploy_spark_app.py to deploy the ETL pipeline and run it on EMR cluster.
 The Python file invloves steps below:
 1. Create a [boto3](https://pypi.org/project/boto3/) session
 2. Open s3 connection
-3. Create a tar.gz file for files of the spark app(ETL pipline)
+3. Create a tar.gz file for files of the spark app(ETL pipeline)
 4. Upload [bash files](src/spark_app) and tar.gz file to s3
 5. Open an EMR connection
 6. Create a custer and run the spark app
@@ -137,7 +137,7 @@ The Python file invloves steps below:
 
 ## Summary
 
-In this project, we go through the process of data gathering and exploration, data model design, building ETL pipline and deploying spark job to cloud. This big data solution is also can be applied to real world, because the AWS EMR can be scaled automatically based on the size of the data. The only difference is that in the real world, we will have log files saved in s3 and we need to process these log files on a daily basis. To schedule the spark job every day, Airflow(which I used in project 5 data pipline with Airflow) is a good choice to perform the task on a schedule and backfill tasks if needed.
+In this project, we go through the process of data gathering and exploration, data model design, building ETL pipeline and deploying spark job to cloud. This big data solution is also can be applied to real world, because the AWS EMR can be scaled automatically based on the size of the data. The only difference is that in the real world, we will have log files saved in s3 and we need to process these log files on a daily basis. To schedule the spark job every day, Airflow(which I used in project 5 data pipeline with Airflow) is a good choice to perform the task on a schedule and backfill tasks if needed.
 
 ### Scenarios analysis
 
@@ -149,7 +149,7 @@ If the data was increated by 100x or even 1000x, our solution still can handle i
 
 #### The pipelines would be run on a daily basis by 7 am every day.
 
-If the ETL pipline would be run on a daily basis, we can use the open source platform [Airflow](https://airflow.apache.org/) to run the job on a schedule. It has a modular architecture and uses a message queue to orchestrate an arbitrary number of workders and is ready to scale to infinity. The Airflow piplines are configuration as python code, allowing for dynamic pipline generation and we can easily define your own operators, exectuors and extend the library. Therefore, we can integrate our ETL pipline with Airflow using python and perform the task on a daily basis.
+If the ETL pipeline would be run on a daily basis, we can use the open source platform [Airflow](https://airflow.apache.org/) to run the job on a schedule. It has a modular architecture and uses a message queue to orchestrate an arbitrary number of workders and is ready to scale to infinity. The Airflow pipelines are configuration as python code, allowing for dynamic pipeline generation and we can easily define your own operators, exectuors and extend the library. Therefore, we can integrate our ETL pipeline with Airflow using python and perform the task on a daily basis.
 
 #### The database needed to be accessed by 100+ people.
 
