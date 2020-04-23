@@ -24,7 +24,7 @@ The project follows steps below:
 
 ### Project scope
 
-The goal of the project is to build a dimentional data model(analytics tables) using [Yelp Open Dataset](https://www.yelp.com/dataset/), and store them to s3 as parquet format. Data analyst, data scientist, business analyst, and software engineer will be able to analyze the data and create visualization to answer business questions, build recommendation systems or prediction models, and develop new products based on the data model. I included a [notebook yelp_eda](jupyter notebook/yelp_eda.ipynb) based on the data model I designed to show you how I used query to answer some business questinos.
+The goal of the project is to build a dimentional data model(analytics tables) using [Yelp Open Dataset](https://www.yelp.com/dataset/), and store them to s3 as parquet format. Data analyst, data scientist, business analyst, and software engineer will be able to analyze the data and create visualization to answer business questions, build recommendation systems or prediction models, and develop new products based on the data model. I included a [notebook yelp_eda](jupyter%20notebook/yelp_eda.ipynb) based on the data model I designed to show you how I used query to answer some business questinos.
 
 
 ### Data gathering
@@ -35,7 +35,7 @@ The project contains data from 3 source.
 2. Yelp category data: Downloaded through [Yelp fusion API](https://www.yelp.com/developers/documentation/v3/category) as json files. The yelp open dataset doesn't provide a full list of category for all businesses. We can get the categroy data through their API. This will help us answer questions like: Is a business rated higher or lower than category average, or how many competitos are there in the save area.
 3. Histical weather data: Scraped from [wunderground](https://www.wunderground.com/history) as csv files. I noticed that there is location information in the bussiness.json, and we can look up histical weather data to see if there is a relationship among temperature, humidity, wind speed and the revews. 
 
-The [notebook data_preparation](jupyter notebook/data_preparation.ipynb) contains the steps to prepare the data. It walks you through the steps to download data from 3 different data source and upload them to AWS s3.
+The [notebook data_preparation](jupyter%20notebook/data_preparation.ipynb) contains the steps to prepare the data. It walks you through the steps to download data from 3 different data source and upload them to AWS s3.
 
 The size of all data files is around 10.5G. The best solution to process the dataset is to use Pyspark and take the advantage of cloud computing(EMR) to process the data at scale.
 
@@ -70,7 +70,7 @@ project_6_capstone			(project folder)
 
 The real world dataset is messy. In order to build a reliable data model, first we need to identiy data qulity issues, like missing values, duplicates, wrong data types, etc. Then, we will design steps to process the data and convert the data into analytics tables.
 
-The [notebook understand_yelp_dataset](jupyter notebook/understand_yelp_dataset].ipynb) documented the steps to explore the dataset, deal with duplicates, impute missing values, create new features and combine tables using pyspark standalone mode.
+The [notebook understand_yelp_dataset](jupyter%20notebook/understand_yelp_dataset].ipynb) documented the steps to explore the dataset, deal with duplicates, impute missing values, create new features and combine tables using pyspark standalone mode.
 
 
 ## Data model design
